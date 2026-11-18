@@ -3,490 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="Portfólio de Sabrine Teixeira, estudante de Desenvolvimento Full Stack.">
-
     <title>Sabrine Teixeira | Desenvolvedora Full Stack</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
-
 <body>
 
-    <!-- Cabeçalho -->
-    <header>
-        <h1>Sabrine Teixeira</h1>
-        <p>Desenvolvedora Full Stack em formação</p>
+    <!-- Barra de navegação -->
+    <header class="topo">
 
-        <button
-            type="button"
-            id="tema"
-            aria-pressed="false">
-            Ativar tema escuro
-        </button>
+        <button type="button" id="menu-botao" aria-expanded="false" aria-controls="menu">Menu</button>
+
+        <nav id="menu" aria-label="Navegação principal">
+            <a href="#sobre">Sobre mim</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#contato">Contato</a>
+            <button type="button" id="tema" aria-pressed="false">Tema claro</button>
+        </nav>
     </header>
 
     <main>
 
-        <!-- Menu de navegação -->
-        <nav class="menu" aria-label="Navegação principal">
-            <ul>
-                <li><a href="#sobre">Sobre mim</a></li>
-                <li><a href="#conhecimentos">Conhecimentos</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#gerenciar-projetos">Cadastrar projeto</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+        <!-- Apresentação -->
+        <section id="sobre" class="hero">
+            <div class="hero-texto">
+                <h1>Sabrine Teixeira</h1>
+                <p class="cargo">Desenvolvedora Full Stack</p>
 
-        <!-- Sobre mim -->
-        <section id="sobre">
-            <h2>Sobre mim</h2>
+                <p>
+                    Estudante de tecnologia focada em soluções completas para a web.
+                    Estudo Java no back-end, combinado com HTML5, CSS3 e JavaScript no front-end.
+                </p>
+                <p id="sobre-extra" hidden>
+                    Gosto de aprender tecnologias novas e desenvolver projetos práticos.
+                    Meu objetivo é conquistar minha primeira oportunidade na área de tecnologia.
+                </p>
 
-            <p>
-                Sou uma estudante de tecnologia e estou focada no
-                desenvolvimento de soluções completas para a web.
-                Atualmente, dedico meus estudos ao ecossistema Java
-                no back-end, combinados a HTML5, CSS3 e JavaScript
-                no front-end.
-            </p>
-
-            <p id="sobre-extra" hidden>
-                Tenho interesse em aprender novas tecnologias,
-                desenvolver projetos práticos e aprimorar minhas
-                habilidades em programação. Meu objetivo é conquistar
-                minha primeira oportunidade profissional na área
-                de tecnologia.
-            </p>
-
-            <button
-                type="button"
-                id="mostrar-mais"
-                aria-expanded="false"
-                aria-controls="sobre-extra">
-                Mostrar mais
-            </button>
-        </section>
-
-        <!-- Conhecimentos -->
-        <section id="conhecimentos">
-            <h2>Conhecimentos</h2>
-
-            <div class="tabela-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tecnologia</th>
-                            <th>Nível de conhecimento</th>
-                            <th>Onde aplico</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>Java</td>
-                            <td>Iniciante</td>
-                            <td>Desenvolvimento de lógica no Back-end</td>
-                        </tr>
-
-                        <tr>
-                            <td>HTML5 e CSS3</td>
-                            <td>Iniciante</td>
-                            <td>Estruturação semântica e estilização visual</td>
-                        </tr>
-
-                        <tr>
-                            <td>JavaScript (ES6+)</td>
-                            <td>Iniciante</td>
-                            <td>Manipulação do DOM e interatividade no Front-end</td>
-                        </tr>
-
-                        <tr>
-                            <td>Git e GitHub</td>
-                            <td>Iniciante</td>
-                            <td>Controle de versão e gestão de repositórios</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <button type="button" id="mostrar-mais" class="botao" aria-expanded="false" aria-controls="sobre-extra">Mostrar mais</button>
+                <a href="#contato" class="botao">Falar comigo</a>
             </div>
         </section>
 
         <!-- Projetos -->
         <section id="projetos">
+            <h2>Projetos</h2>
 
-            <h2>Meus projetos</h2>
-
-            <p id="contador-projetos" aria-live="polite">
-                Projetos visíveis: 2
-            </p>
-
-            <!-- Filtro -->
-            <div class="campo-filtro">
-                <label for="filtro">Filtrar projetos:</label>
-
+            <div class="barra-projetos">
+                <label for="filtro">Filtrar:</label>
                 <select id="filtro">
                     <option value="todos">Todos</option>
                     <option value="web">Web</option>
                     <option value="mobile">Mobile</option>
                 </select>
+                <p id="contador-projetos" aria-live="polite">Projetos visíveis: 2</p>
             </div>
 
-            <!-- Cards -->
-            <div class="projetos-container" id="lista-projetos">
-
-                <article class="card-projeto"
-                    data-categoria="web">
-
+            <div class="grade" id="lista-projetos">
+                <article class="card-projeto" data-categoria="web">
+                    <div class="thumb">D</div>
                     <h3>Projeto DOM</h3>
-
-                    <p>
-                        Aplicação web desenvolvida para praticar
-                        e consolidar conceitos fundamentais de
-                        manipulação do DOM.
-                    </p>
-
-                    <ul>
-                        <li>HTML5 e CSS3</li>
-                        <li>JavaScript (ES6+)</li>
-                    </ul>
-
-                    <a
-                        href="https://github.com/sabrineteixeira/Projeto-Dom"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        Ver no GitHub
-                    </a>
-
-                    <button
-                        class="remover"
-                        type="button">
-                        Remover projeto
-                    </button>
-
+                    <p>Aplicação web para praticar e consolidar a manipulação do DOM.</p>
+                    <ul class="tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li></ul>
+                    <a href="https://github.com/sabrineteixeira/Projeto-Dom" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+                    <button type="button" class="remover">Remover projeto</button>
                 </article>
 
-                <article class="card-projeto"
-                    data-categoria="web">
-
+                <article class="card-projeto" data-categoria="web">
+                    <div class="thumb">B</div>
                     <h3>Bikepro</h3>
-
-                    <p>
-                        Aplicação web desenvolvida para a gestão
-                        e visualização de bicicletas de alta performance.
-                    </p>
-
-                    <ul>
-                        <li>HTML5 e CSS3</li>
-                        <li>JavaScript (ES6+)</li>
-                    </ul>
-
-                    <a
-                        href="https://github.com/sabrineteixeira/Bikepro"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        Ver no GitHub
-                    </a>
-
-                    <button
-                        class="remover"
-                        type="button">
-                        Remover projeto
-                    </button>
-
+                    <p>Aplicação web para gestão e visualização de bicicletas de alta performance.</p>
+                    <ul class="tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li></ul>
+                    <a href="https://github.com/sabrineteixeira/Bikepro" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+                    <button type="button" class="remover">Remover projeto</button>
                 </article>
+
+                 <article class="card-projeto" data-categoria="web">
+                    <div class="thumb">T</div>
+                    <h3>Testes de integração e rotas</h3>
+                    <p>Aplicação web para testes de integração e definição de rotas.</p>
+                    <ul class="tags"><li>HTML5</li><li>CSS3</li><li>TypeScript</li></ul>
+                    <a href="https://github.com/sabrineteixeira/Testes_de_integracao_e_rotas.git" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+                    <button type="button" class="remover">Remover projeto</button>
+                </article>
+                
 
             </div>
 
             <p id="status-projetos" role="status" aria-live="polite"></p>
 
-        </section>
-
-        <!-- Cadastro de projetos -->
-        <section id="gerenciar-projetos">
-
-            <h2>Adicionar novo projeto</h2>
-
-            <p>
-                Utilize o formulário abaixo para adicionar
-                novos projetos ao seu portfólio.
-            </p>
-
             <form id="cadastro-projeto" novalidate>
-
-                <div>
-                    <label for="projeto-nome">
-                        Nome do projeto
-                    </label>
-
-                    <input
-                        type="text"
-                        id="projeto-nome"
-                        name="nome"
-                        placeholder="Digite o nome do projeto"
-                        required
-                        minlength="3">
-                </div>
-
-                <div>
-                    <label for="projeto-categoria">
-                        Categoria
-                    </label>
-
-                    <select
-                        id="projeto-categoria"
-                        name="categoria"
-                        required>
-
+                <h3>Adicionar projeto</h3>
+                <div class="linha">
+                    <input type="text" id="projeto-nome" name="nome" placeholder="Nome do projeto" aria-label="Nome do projeto" required minlength="3">
+                    <select id="projeto-categoria" name="categoria" aria-label="Categoria">
                         <option value="web">Web</option>
                         <option value="mobile">Mobile</option>
-
                     </select>
+                    <button type="submit" class="botao">Adicionar</button>
                 </div>
-
-                <button type="submit">
-                    Adicionar projeto
-                </button>
-
+                <p id="status-cadastro" role="status" aria-live="polite"></p>
             </form>
-
-            <p id="status-cadastro" role="status" aria-live="polite"></p>
-
         </section>
 
-        <!-- Informações complementares -->
-        <aside>
-            <h2>Informações Complementares</h2>
+        <!-- Habilidades -->
+        <section id="habilidades">
+            <h2>Habilidades</h2>
 
-            <h3>Objetivo Profissional</h3>
+            <div class="grade" id="lista-skills">
+                <article class="card-skill" data-nivel="40">
+                    <h3>Java</h3>
+                    <p>Nível: Iniciante <strong>40%</strong></p>
+                    <button type="button" class="skill-mais" aria-expanded="false">Ver mais</button>
+                    <p class="detalhe" hidden>Uso para desenvolver a lógica do back-end.</p>
+                </article>
 
-            <p>
-                Buscando primeira oportunidade no mercado de tecnologia
-                como estagiária ou desenvolvedora Júnior
-                (Full Stack).
-            </p>
+                <article class="card-skill" data-nivel="50">
+                    <h3>HTML e CSS</h3>
+                    <p>Nível: Iniciante <strong>50%</strong></p>
+                    <button type="button" class="skill-mais" aria-expanded="false">Ver mais</button>
+                    <p class="detalhe" hidden>Uso para estruturar com semântica e estilizar as páginas.</p>
+                </article>
 
-            <h3>Idiomas</h3>
+                <article class="card-skill" data-nivel="45">
+                    <h3>JavaScript</h3>
+                    <p>Nível: Iniciante <strong>45%</strong></p>
+                    <button type="button" class="skill-mais" aria-expanded="false">Ver mais</button>
+                    <p class="detalhe" hidden>Uso para manipular o DOM e criar interatividade.</p>
+                </article>
 
-            <ul>
-                <li>Português (Nativo)</li>
-                <li>Inglês (Iniciante)</li>
-            </ul>
+                <article class="card-skill" data-nivel="35">
+                    <h3>Git e GitHub</h3>
+                    <p>Nível: Iniciante <strong>35%</strong></p>
+                    <button type="button" class="skill-mais" aria-expanded="false">Ver mais</button>
+                    <p class="detalhe" hidden>Uso para controlar versões e gerenciar repositórios.</p>
+                </article>
+            </div>
+        </section>
 
-            <h3>Redes Profissionais</h3>
+        <!-- Contato -->
+        <section id="contato" class="contato">
+            <div class="contato-info">
+                <h2>Deixe seu recado</h2>
+                <p>Buscando minha primeira oportunidade como estagiária ou desenvolvedora júnior. Sua mensagem chega direto no meu e-mail.</p>
+                <ul>
+                    <li><a href="https://linkedin.com/in/sabrineteixeira" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://github.com/sabrineteixeira" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                </ul>
+            </div>
 
-            <ul>
-                <li>
-                    <a
-                        href="https://github.com/sabrineteixeira"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        GitHub
-                    </a>
-                </li>
+            <form id="form-contato" novalidate>
+                <div>
+                    <label for="contato-nome">Nome</label>
+                    <input type="text" id="contato-nome" name="nome" autocomplete="name" maxlength="80" required aria-describedby="erro-nome">
+                    <small id="erro-nome" class="erro"></small>
+                </div>
 
-                <li>
-                    <a
-                        href="https://linkedin.com/in/sabrineteixeira"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        LinkedIn
-                    </a>
-                </li>
-            </ul>
-        </aside>
+                <div>
+                    <label for="contato-email">E-mail</label>
+                    <input type="email" id="contato-email" name="email" autocomplete="email" required aria-describedby="erro-email">
+                    <small id="erro-email" class="erro"></small>
+                </div>
 
-       <!-- Contato -->
-<section id="contato">
+                <div>
+                    <label for="contato-motivo">Motivo do contato</label>
+                    <select id="contato-motivo" name="motivo" required aria-describedby="erro-motivo">
+                        <option value="">Selecione um motivo</option>
+                        <option value="Oportunidade profissional">Oportunidade profissional</option>
+                        <option value="Projeto freelance">Projeto freelance</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                    <small id="erro-motivo" class="erro"></small>
+                </div>
 
-    <h2>Entre em contato</h2>
+                <div>
+                    <label for="contato-mensagem">Mensagem</label>
+                    <textarea id="contato-mensagem" name="mensagem" rows="5" maxlength="1000" required aria-describedby="contador-mensagem erro-mensagem"></textarea>
+                    <small id="contador-mensagem" aria-live="polite">0 / 1000 caracteres (mínimo 30)</small>
+                    <small id="erro-mensagem" class="erro"></small>
+                </div>
 
-    <p>
-        Preencha os campos abaixo para entrar em contato.
-    </p>
+                <!-- Campo isca contra robôs: pessoas não veem, robôs preenchem -->
+                <input type="text" name="_gotcha" class="isca" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-    <form id="form-contato" novalidate>
+                <button type="submit" id="botao-enviar" class="botao">Enviar mensagem</button>
+                <p id="status-contato" role="status" aria-live="polite" aria-atomic="true"></p>
+            </form>
+        </section>
+    </main>
 
-        <!-- Nome -->
-        <div>
-            <label for="contato-nome">Nome</label>
-
-            <input
-                type="text"
-                id="contato-nome"
-                name="nome"
-                required
-                minlength="3"
-                maxlength="80"
-                autocomplete="name"
-                aria-describedby="ajuda-nome erro-nome">
-
-            <small id="ajuda-nome">
-                Obrigatório. De 3 a 80 caracteres.
-                Espaços, acentos, hífens e apóstrofos são aceitos.
-            </small>
-
-            <small id="erro-nome" class="erro-campo"></small>
-        </div>
-
-        <!-- E-mail -->
-        <div>
-            <label for="contato-email">E-mail</label>
-
-            <input
-                type="email"
-                id="contato-email"
-                name="email"
-                required
-                autocomplete="email"
-                aria-describedby="ajuda-email erro-email">
-
-            <small id="ajuda-email">
-                Informe um endereço de e-mail válido.
-            </small>
-
-            <small id="erro-email" class="erro-campo"></small>
-        </div>
-
-        <!-- Motivo -->
-        <div>
-            <label for="contato-motivo">Motivo do contato</label>
-
-            <select
-                id="contato-motivo"
-                name="motivo"
-                required
-                aria-describedby="ajuda-motivo erro-motivo">
-
-                <option value="">Selecione um motivo</option>
-
-                <option value="Oportunidade profissional">
-                    Oportunidade profissional
-                </option>
-
-                <option value="Projeto freelance">
-                    Projeto freelance
-                </option>
-
-                <option value="Outro">
-                    Outro
-                </option>
-
-            </select>
-
-            <small id="ajuda-motivo">
-                Escolha uma das opções disponíveis
-            </small>
-
-            <small id="erro-motivo" class="erro-campo"></small>
-        </div>
-
-        <!-- Assunto adicional -->
-        <div id="grupo-assunto" hidden>
-
-            <label for="contato-assunto">
-                Assunto adicional
-            </label>
-
-            <input
-                type="text"
-                id="contato-assunto"
-                name="assunto"
-                minlength="5"
-                maxlength="100"
-                disabled
-                aria-describedby="ajuda-assunto erro-assunto">
-
-            <small id="ajuda-assunto">
-                Obrigatório para a opção Outro.
-                De 5 a 100 caracteres.
-            </small>
-
-            <small id="erro-assunto" class="erro-campo"></small>
-
-        </div>
-
-        <!-- Mensagem -->
-        <div>
-            <label for="contato-mensagem">Mensagem</label>
-
-            <textarea
-                id="contato-mensagem"
-                name="mensagem"
-                rows="5"
-                required
-                minlength="30"
-                maxlength="1000"
-                aria-describedby="ajuda-mensagem contador-mensagem erro-mensagem"></textarea>
-
-            <small id="ajuda-mensagem">
-                Obrigatória. De 30 a 1000 caracteres.
-            </small>
-
-            <small id="contador-mensagem" aria-live="polite">
-                0 / 1000 caracteres
-            </small>
-
-            <small id="erro-mensagem" class="erro-campo"></small>
-        </div>
-
-        <!-- Controle de demonstração -->
-        <div>
-            <label for="resultado-teste">
-                Resultado da demonstração
-            </label>
-
-            <select id="resultado-teste" name="resultadoTeste">
-                <option value="sucesso">Simular sucesso</option>
-                <option value="falha">Simular falha</option>
-            </select>
-
-            <small>
-                Demonstração acadêmica: nenhum e-mail será enviado
-            </small>
-        </div>
-
-        <!-- Resumo dos erros -->
-        <div
-            id="resumo-erros"
-            class="resumo-erros"
-            tabindex="-1"
-            hidden>
-        </div>
-
-        <button type="submit" id="botao-enviar">
-            Enviar mensagem
-        </button>
-
-    </form>
-
-    <p
-        id="status-contato"
-        role="status"
-        aria-live="polite"
-        aria-atomic="true">
-    </p>
-
-    <p>
-        Você também pode entrar em contato pelo LinkedIn
-        <a
-            href="https://linkedin.com/in/sabrineteixeira"
-            target="_blank"
-            rel="noopener noreferrer">
-        
-        </a>
-    </p>
-
-</section>
-
-    <!-- Rodapé -->
     <footer>
-        <p>Portfólio de Sabrine Teixeira - 2026</p>
-
-        <p>
-            Desenvolvido como atividade da disciplina
-            de Programação Front-End.
-        </p>
+        <p>Portfólio de Sabrine Teixeira · 2026</p>
     </footer>
 
 </body>
